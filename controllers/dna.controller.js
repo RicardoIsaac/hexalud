@@ -37,9 +37,18 @@ const mutationSearch = asyncHandler(async (req, res, next) => {
     next(error);
   }
 });
+const getStats = asyncHandler(async (req, res, next) => {
+    const dnaData = await Dna.find({}, "mutation");
+    const count_mutations = dnaData.filter((obj) => obj.mutation === true).length;
+    const count_no_mutations = dnaData.length - count_mutations
+    const ratio = count_mutations === 0 ? 0 : count_mutations / count_no_mutations;
+    res.status(200).json({
+        count_mutations,count_no_mutations,ratio
 
+    });
+});
 
 
 module.exports = {
-  mutationSearch
+  mutationSearch,getStats
 };

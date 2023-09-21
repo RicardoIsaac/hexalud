@@ -1,8 +1,8 @@
 const express = require('express');
-const { mutationSearch } = require('../controllers/dna.controller');
+const { mutationSearch, getStats } = require('../controllers/dna.controller');
 const router = express.Router();
 
 router.post('/mutation',mutationSearch)
-router.get('/stats',)
+router.get('/stats',getStats)
 
 module.exports = router;
