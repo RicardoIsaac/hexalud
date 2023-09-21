@@ -1,8 +1,9 @@
-const express = require('express');
-const { mutationSearch, getStats } = require('../controllers/dna.controller');
+import express from 'express'
+import { mutationSearch, getStats } from '../controllers/dna.controller.js' 
+
 const router = express.Router();
 
 router.post('/mutation',mutationSearch)
 router.get('/stats',getStats)
 
-module.exports = router;
+export default router

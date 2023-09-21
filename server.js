@@ -1,11 +1,14 @@
-const dotenv = require('dotenv').config();
-const express = require('express');
-const mongoose = require('mongoose');
-const bodyParser = require('body-parser');
-const cors = require('cors');
-const mutationsRoutes = require('./routes/adn.routes')
-const errorHandler = require('./middleware/error.middleware')
+import express from 'express'
+import bodyParser from 'body-parser';
+import cors from 'cors'
+import mutationsRoutes from './routes/adn.routes.js'
+import errorHandler from './middleware/error.middleware.js'
+////
+import mongoose from 'mongoose';
+import dotenv from 'dotenv';
+dotenv.config();
 
+//import app from './app.js';
 const app = express()
 
 app.use(express.json());
@@ -17,17 +20,20 @@ app.use(cors({
   }));
 
   app.get('/', (req,res)=>{
-    res.send("Home page")
+    res.status(200).json({ message: "Conexion exitosa" });
 })
 
 app.use('', mutationsRoutes)
 app.use(errorHandler);
+
 const port  = process.env.PORT || 5000;
 
 mongoose.connect(process.env.MongoSRV)
 .then(()=>{
     app.listen(port,()=>{
-        console.log(`server listening on ${port}`);
+       //console.log(`server listening on ${port}`);
     });
 })
 .catch(err =>console.log(err))
+
+export default app

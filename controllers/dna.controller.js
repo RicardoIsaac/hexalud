@@ -1,8 +1,9 @@
-const asyncHandler = require("express-async-handler");
-const { NxnCheck, MutationCheck } = require("../utils/DnaMutations");
-const Dna = require("../model/dna.model");
 
-const mutationSearch = asyncHandler(async (req, res, next) => {
+import asyncHandler from "express-async-handler";
+import { NxnCheck, MutationCheck } from '../utils/DnaMutations.js'
+import Dna from "../model/dna.model.js";
+
+export const mutationSearch = asyncHandler(async (req, res, next) => {
   try {
     const { dna } = req.body;
     if (!dna) {
@@ -37,7 +38,7 @@ const mutationSearch = asyncHandler(async (req, res, next) => {
     next(error);
   }
 });
-const getStats = asyncHandler(async (req, res, next) => {
+export const getStats = asyncHandler(async (req, res, next) => {
     const dnaData = await Dna.find({}, "mutation");
     const count_mutations = dnaData.filter((obj) => obj.mutation === true).length;
     const count_no_mutations = dnaData.length - count_mutations
@@ -49,6 +50,4 @@ const getStats = asyncHandler(async (req, res, next) => {
 });
 
 
-module.exports = {
-  mutationSearch,getStats
-};
+

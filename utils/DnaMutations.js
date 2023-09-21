@@ -39,7 +39,7 @@ const DiagonalCheck = (DNA) => {
   return false
 }
 
-const NxnCheck= (DNA) => {
+export const NxnCheck= (DNA) => {
     if (!Array.isArray(DNA) || DNA.length === 0) {
       return false;
     }
@@ -59,7 +59,7 @@ const NxnCheck= (DNA) => {
     return true;
   }
 
-const MutationCheck= (DNA) => {
+export const MutationCheck= (DNA) => {
     const hCheck=HorizontalCheck(DNA)
     const vCheck=VerticallCheck(DNA)
      const dCheck=DiagonalCheck(DNA)   
@@ -70,7 +70,3 @@ const MutationCheck= (DNA) => {
       }
 }
 
-
-module.exports = {
-   NxnCheck,MutationCheck
-}

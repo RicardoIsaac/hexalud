@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+import mongoose from 'mongoose';
 
 const dnaSchema = mongoose.Schema({
 
@@ -22,4 +22,4 @@ timestamps: false,
 
 const  Dna = mongoose.model('Dna',dnaSchema);
 
-module.exports = Dna;
+export default Dna;
