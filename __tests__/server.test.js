@@ -1,7 +1,6 @@
 import request from 'supertest';
 import app from'../server.js'; // Import your Express app
 import {generarMatriz6x6}  from '../utils/utils.js';
-import  {MutationCheck}  from '../utils/DnaMutations.js';
 
 describe('GET /', () => {
   test('should respond with "Conexion exitosa"', async () => {
@@ -47,4 +46,18 @@ describe('No duplicate save', () => {
     }
 
   })
+
 });
+
+describe('Dont accept bad request', () => {
+  test("Post with no dna",async () => {
+    const response = await request(app).post("/mutation").send()
+    expect(response.body.message).toBe("Favor de agregar el dna del paciente")
+  })
+
+  test("Post with bad dna",async () => {
+    const badDna=["ATCGA","CAGT", "TATTT", "AGACGG", "GCA","TCACTG"]
+    const response = await request(app).post("/mutation").send({dna:badDna})
+    expect(response.body.message).toBe("Favor de agregar un dna valido")
+  })
+})
