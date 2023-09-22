@@ -18,11 +18,15 @@ Antes de comenzar, asegúrate de cumplir con los siguientes requisitos:
 - Un editor de texto o un entorno de desarrollo integrado de tu elección (por ejemplo, Visual Studio Code).
 
 ## Empezar
-
 1. Clona este repositorio en tu máquina local:
+
+![GitHub](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white)
 
 ```bash
 git clone https://github.com/RicardoIsaac/hexalud
+```
+![GitLab](https://img.shields.io/badge/gitlab-%23181717.svg?style=for-the-badge&logo=gitlab&logoColor=white)
+```bash
 git clone https://gitlab.com/hexalud1/hexalud.git
 ```
 2. Navega al directorio del proyecto:

@@ -20,8 +20,14 @@ Before you begin, ensure you have met the following requirements:
 ## Getting Started
 
 1. Clone this repository to your local machine:
+
+![GitHub](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white)
+
 ```bash
 git clone https://github.com/RicardoIsaac/hexalud
+```
+![GitLab](https://img.shields.io/badge/gitlab-%23181717.svg?style=for-the-badge&logo=gitlab&logoColor=white)
+```bash
 git clone https://gitlab.com/hexalud1/hexalud.git
 ```
 2. Navigate to the project directory:
