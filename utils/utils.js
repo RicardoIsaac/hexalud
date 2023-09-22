@@ -8,7 +8,7 @@ export function generarMatriz6x6() {
         const letraAleatoria = letras[Math.floor(Math.random() * letras.length)];
         fila.push(letraAleatoria);
       }
-      matriz.push(fila);
+      matriz.push(fila.join(""));
     }
   
     return matriz;
