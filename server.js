@@ -8,7 +8,6 @@ import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 dotenv.config();
 
-//import app from './app.js';
 const app = express()
 
 app.use(express.json());
@@ -26,12 +25,12 @@ app.use(cors({
 app.use('', mutationsRoutes)
 app.use(errorHandler);
 
-const port  = process.env.PORT || 5000;
+const port  = process.env.PORT || 80;
 
 mongoose.connect(process.env.MongoSRV)
 .then(()=>{
     app.listen(port,()=>{
-       //console.log(`server listening on ${port}`);
+       console.log(`server listening on ${port}`);
     });
 })
 .catch(err =>console.log(err))
